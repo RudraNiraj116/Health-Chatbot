@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ChatArea from "../components/ChatArea";
 
 const Mainarea = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -28,20 +29,30 @@ const Mainarea = () => {
           <div
             className={`${
               sidebarOpen ? "col-md-9" : "col-md-12"
-            } bg-info vh-100 p-3`}
+            } vh-100 p-3 d-flex flex-column`}
           >
             {!sidebarOpen && (
               <button className="btn btn-dark mb-3" onClick={toggleSidebar}>
                 Show Sidebar
               </button>
             )}
+
             <h4>Chat Section</h4>
-            <div
-              className="bg-white p-3 rounded"
-              style={{ height: "85%", overflowY: "auto" }}
-            >
-              {/* Chat messages go here */}
-              <p>sdsfs</p>
+
+            {/* Chat container with scrollable messages and fixed input */}
+            <div className="bg-white p-3 rounded flex-grow-1 d-flex flex-column">
+              {/* Scrollable message area */}
+              <div
+                className="flex-grow-1 mb-3 overflow-auto"
+                style={{ maxHeight: "100%" }}
+              >
+                {/* Chat messages can go here */}
+                <p>Hi! This is a message.</p>
+                <p>Another message...</p>
+              </div>
+
+              {/* Input box at bottom */}
+              <ChatArea />
             </div>
           </div>
         </div>

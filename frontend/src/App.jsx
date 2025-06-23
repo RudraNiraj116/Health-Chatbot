@@ -1,12 +1,10 @@
 import Navbar from './components/Navbar'
-import Mainarea from './components/Mainarea' 
-import ChatArea from './components/ChatArea';
+import Mainarea from './components/Mainarea'
 const App = () => {
   return (
     <>
       <Navbar />
       <Mainarea />
-      <ChatArea />
     </>
   );
 }
