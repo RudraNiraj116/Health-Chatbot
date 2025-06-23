@@ -1,6 +1,5 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import '@fortawesome/fontawesome-free/css/all.min.css'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 const ChatArea = () => {
   return (
