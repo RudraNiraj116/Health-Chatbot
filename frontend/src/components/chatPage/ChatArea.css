@@ -7,6 +7,7 @@
 }
 
 .chat-input {
+  margin-bottom: 60px;
   flex-grow: 1;
   padding: 10px 15px;
   font-size: 1rem;
@@ -21,10 +22,11 @@
 }
 
 .send-btn {
+  margin-bottom: 60px;
   margin-left: 10px;
   padding: 10px 14px;
   font-size: 1rem;
-  background-color: #007bff;
+ background: linear-gradient(to right, #134e5e, #71b280);
   border: none;
   border-radius: 50%;
   color: white;
@@ -35,7 +37,7 @@
 .send-btn:hover {
   background-color: #0056b3;
 }
-/* .chat-input-form .send-btn:disabled {
+.chat-input-form .send-btn:disabled {
   background-color: #ccc;
   cursor: not-allowed;
-} */
+}

@@ -1,11 +1,11 @@
 // client/src/components/LoginPage/AuthForm.jsx
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './AuthForm.css';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./AuthForm.css";
 
-const AuthForm = () => {
+const AuthForm = ({ setUser }) => {
   const [isLogin, setIsLogin] = useState(true);
-  const [formData, setFormData] = useState({ email: '', password: '', name: '' });
+  const [formData, setFormData] = useState({ email: "", password: "", name: "" });
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -14,27 +14,30 @@ const AuthForm = () => {
 
   const toggleMode = () => {
     setIsLogin(!isLogin);
-    setFormData({ email: '', password: '', name: '' });
+    setFormData({ email: "", password: "", name: "" });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const endpoint = isLogin ? '/api/auth/login' : '/api/auth/signup';
+    const endpoint = isLogin ? "/api/auth/login" : "/api/auth/signup";
 
-    const res = await fetch(`http://localhost:5000${endpoint}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
+    try {
+      const res = await fetch(`http://localhost:5000${endpoint}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (res.ok) {
-      localStorage.setItem('userEmail', data.email);
-      localStorage.setItem('userName', data.name);
-      navigate('/chat');
-    } else {
-      alert(data.message);
+      if (res.ok) {
+        setUser({ name: data.name, email: data.email });
+        navigate("/chat");
+      } else {
+        alert(data.message || "Authentication failed.");
+      }
+    } catch (error) {
+      alert("An error occurred. Please try again.");
     }
   };
 
@@ -76,7 +79,7 @@ const AuthForm = () => {
 
         <p>
           {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
-          <span onClick={toggleMode} style={{ color: 'blue', cursor: 'pointer' }}>
+          <span onClick={toggleMode} style={{ color: "blue", cursor: "pointer" }}>
             {isLogin ? "Sign up here" : "Login here"}
           </span>
         </p>
