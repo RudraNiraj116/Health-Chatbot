@@ -1,0 +1,83 @@
+/* src/components/checkupPage/Checkup.css */
+.checkup-wrapper {
+  padding: 40px;
+  max-width: 600px;
+  margin: auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.checkup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.checkup-header h2 {
+  color: #134e5e;
+  margin: 0;
+}
+
+.back-btn {
+  background: #ccc;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.back-btn:hover {
+  background: #aaa;
+}
+
+.checkup-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #134e5e;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.submit-btn {
+    margin-left: 12vw;
+  background-color: #71b280;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.submit-btn:hover {
+  background-color: #5aa06c;
+}
+
+.result {
+  margin-top: 20px;
+  background: #f1fdf8;
+  padding: 15px;
+  border-left: 5px solid #134e5e;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #333;
+}
