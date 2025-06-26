@@ -1,4 +1,5 @@
 .chat-input-form {
+  margin-right: 50px;
   display: flex;
   align-items: center;
   padding: 10px;
