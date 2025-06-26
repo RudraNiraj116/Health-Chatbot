@@ -10,6 +10,16 @@ const ChatSection = ({ showSidebar, onToggleSidebar }) => {
   const [loading, setLoading] = useState(false);
   const chatRef = useRef();
 
+const commonPrompts = [
+  { emoji: "🤒", text: "I have a fever" },
+  { emoji: "🩺", text: "Tell me about blood pressure" },
+  { emoji: "🍎", text: "Healthy diet tips" },
+  { emoji: "🧘", text: "Stress management techniques" },
+  { emoji: "💤", text: "How to sleep better?" },
+  { emoji: "💊", text: "Can I take ibuprofen for pain?" }
+];
+
+
   useEffect(() => {
     chatRef.current?.scrollTo({
       top: chatRef.current.scrollHeight,
@@ -95,6 +105,17 @@ const ChatSection = ({ showSidebar, onToggleSidebar }) => {
           </div>
         )}
       </div>
+
+      {/* Suggested prompts */}
+      <div className="suggested-prompts">
+  {commonPrompts.map((item, index) => (
+    <div key={index} className="suggestion-chip" onClick={() => sendMessage(item.text)}>
+      <span className="emoji">{item.emoji}</span>
+      <span className="text">{item.text}</span>
+    </div>
+  ))}
+</div>
+
 
       <div className="chat-input-wrapper">
         <ChatArea onSend={sendMessage} />

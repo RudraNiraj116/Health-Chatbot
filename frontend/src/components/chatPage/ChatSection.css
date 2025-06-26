@@ -55,6 +55,7 @@
 }
 
 .start-msg {
+  margin-right: 27vw;
   text-align: center;
   color: #888;
   margin-top: 40%;
@@ -101,4 +102,119 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* predefined word above search bar */
+
+.chat-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+   background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.message-bubble {
+  max-width: 70%;
+  padding: 12px 16px;
+  margin: 10px 0;
+  border-radius: 18px;
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.message-bubble.user {
+  margin-right: 55px;
+  align-self: flex-end;
+  background-color: #d1eaff;
+  color: #0d3b66;
+  border-bottom-right-radius: 4px;
+}
+
+.message-bubble.bot {
+  align-self: flex-start;
+  background-color: #ffffff;
+  color: #333;
+  border-bottom-left-radius: 4px;
+}
+
+.msg-time {
+  display: block;
+  font-size: 0.7rem;
+  color: #888;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.start-msg {
+
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.toggle-sidebar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #0d3b66;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+.chat-input-wrapper {
+  padding: 12px 16px;
+  border-top: 1px solid #ccc;
+  background-color: #f8f9fa;
+}
+
+.suggested-prompts {
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px;
+  overflow-x: auto;
+ /* -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+ */
+}
+
+.suggested-prompts::-webkit-scrollbar {
+   height: 0;
+}
+
+.suggestion-chip {
+  display: flex;
+  align-items: center;
+  background-color: #f1f3f6;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: background 0.3s, transform 0.2s;
+}
+
+
+.suggestion-chip:hover {
+  background-color: #e0e5ec;
+  transform: translateY(-2px);
+}
+
+
+.suggestion-chip .emoji {
+  margin-right: 6px;
 }
