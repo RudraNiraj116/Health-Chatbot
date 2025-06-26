@@ -70,7 +70,11 @@ const ChatSection = ({ showSidebar, onToggleSidebar }) => {
   return (
     <div className="chat-section">
       {!showSidebar && (
-        <button className="toggle-sidebar" onClick={onToggleSidebar}>
+        <button
+          className="toggle-sidebar"
+          aria-label="Toggle sidebar" title="Toggle sidebar"
+          onClick={onToggleSidebar}
+        >
           <FontAwesomeIcon icon={faBars} />
         </button>
       )}
