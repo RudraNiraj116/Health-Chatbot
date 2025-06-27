@@ -1,4 +1,3 @@
-// src/components/checkupPage/Checkup.jsx
 import { useState } from "react";
 import "./Checkup.css";
 
@@ -53,6 +52,7 @@ const Checkup = ({ onBack }) => {
           <label>Blood Pressure (e.g. 120/80)</label>
           <input
             type="text"
+            className="input-bp"
             value={bp}
             onChange={(e) => setBp(e.target.value)}
             placeholder="120/80"
@@ -62,6 +62,7 @@ const Checkup = ({ onBack }) => {
           <label>Blood Sugar (mg/dL)</label>
           <input
             type="number"
+            className="input-sugar"
             value={sugar}
             onChange={(e) => setSugar(e.target.value)}
             placeholder="90"
@@ -71,6 +72,7 @@ const Checkup = ({ onBack }) => {
           <label>Heart Rate (bpm)</label>
           <input
             type="number"
+            className="input-heart-rate"
             value={heartRate}
             onChange={(e) => setHeartRate(e.target.value)}
             placeholder="75"

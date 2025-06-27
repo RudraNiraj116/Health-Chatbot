@@ -80,14 +80,16 @@ const commonPrompts = [
   return (
     <div className="chat-section">
       {!showSidebar && (
-        <button
-          className="toggle-sidebar"
-          aria-label="Toggle sidebar" title="Toggle sidebar"
-          onClick={onToggleSidebar}
-        >
-          <FontAwesomeIcon icon={faBars} />
-        </button>
-      )}
+  <button
+    className="toggle-sidebar"
+    aria-label="Toggle sidebar"
+    title="Toggle sidebar"
+    onClick={onToggleSidebar}
+  >
+    <FontAwesomeIcon icon={faBars} />
+  </button>
+)}
+
 
       <div className="chat-messages" ref={chatRef}>
         {!messages.length && !loading && (

@@ -55,3 +55,27 @@
 .icon-item span {
   font-size: 1rem;
 }
+
+/* In Sidebar.css */
+@media (min-width: 769px) {
+  .sidebar {
+    position: static;
+    transform: none !important;
+    box-shadow: none;
+  }
+
+  .sidebar-overlay {
+    display: none;
+  }
+}
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* Hidden by default */
+}
+
+

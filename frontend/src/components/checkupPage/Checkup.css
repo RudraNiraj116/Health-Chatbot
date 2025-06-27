@@ -33,7 +33,7 @@
 
 .checkup-card {
   background: #ffffff;
-  padding: 25px;
+  padding: 35px;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
@@ -58,7 +58,8 @@ input {
 }
 
 .submit-btn {
-    margin-left: 12vw;
+  margin-top: 50px;
+  margin-left: 10vw;
   background-color: #71b280;
   color: white;
   padding: 12px 18px;
@@ -80,4 +81,37 @@ input {
   border-radius: 8px;
   font-weight: 600;
   color: #333;
+}
+
+
+
+/* Ensure consistent sizing for all inputs */
+.input-bp{
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.input-sugar{
+  margin-left: 49px;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.input-heart-rate {
+  margin-left: 74px;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
 }

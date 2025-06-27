@@ -36,7 +36,7 @@ const Reminders = ({ onBack }) => {
 
   return (
     <div className="reminder-container">
-      <h2>Health Reminders</h2>
+      <h2>🩺Health Reminders</h2>
       <div className="form-group">
         <input
           type="text"
