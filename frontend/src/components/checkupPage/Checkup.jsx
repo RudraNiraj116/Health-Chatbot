@@ -6,39 +6,37 @@ const Checkup = ({ onBack }) => {
   const [sugar, setSugar] = useState("");
   const [heartRate, setHeartRate] = useState("");
   const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleCheck = () => {
-    let analysis = [];
+  const handleCheck = async () => {
+  if (!bp || !sugar || !heartRate) {
+    setResult("⚠️ Please fill in all fields.");
+    return;
+  }
 
-    const [systolic, diastolic] = bp.split("/").map(Number);
-    if (systolic > 140 || diastolic > 90) {
-      analysis.push("High Blood Pressure");
-    } else if (systolic < 90 || diastolic < 60) {
-      analysis.push("Low Blood Pressure");
+  setResult("⏳ Checking health data...");
+  try {
+    const response = await fetch("http://localhost:5000/api/gemini/health-check", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ bp, sugar, heartRate }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok && data.result) {
+      setResult(data.result);
     } else {
-      analysis.push("Normal Blood Pressure");
+      setResult("⚠️ No valid analysis received from Gemini.");
     }
+  } catch (error) {
+    console.error("❌ Error contacting Gemini API:", error);
+    setResult("❌ Failed to fetch analysis. Please try again later.");
+  }
+};
 
-    const sugarLevel = Number(sugar);
-    if (sugarLevel > 180) {
-      analysis.push("High Blood Sugar");
-    } else if (sugarLevel < 70) {
-      analysis.push("Low Blood Sugar");
-    } else {
-      analysis.push("Normal Blood Sugar");
-    }
-
-    const hr = Number(heartRate);
-    if (hr < 60) {
-      analysis.push("Bradycardia (Low Heart Rate)");
-    } else if (hr > 100) {
-      analysis.push("Tachycardia (High Heart Rate)");
-    } else {
-      analysis.push("Normal Heart Rate");
-    }
-
-    setResult(analysis.join(" | "));
-  };
 
   return (
     <div className="checkup-wrapper">
@@ -78,13 +76,14 @@ const Checkup = ({ onBack }) => {
             placeholder="75"
           />
         </div>
-        <button className="submit-btn" onClick={handleCheck}>
-          Check Now
+        <button className="submit-btn" onClick={handleCheck} disabled={loading}>
+          {loading ? "Checking..." : "Check Now"}
         </button>
 
         {result && (
           <div className="result">
-            <strong>Result:</strong> {result}
+            <strong>Analysis:</strong>
+            <pre>{result}</pre>
           </div>
         )}
       </div>

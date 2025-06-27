@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 
 import authRoutes from './routes/auth.js';
 import chatRoutes from './routes/chat.js';
+import geminiRoutes from './routes/gemini.js'; // <-- NEW
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/chat', chatRoutes);
+app.use('/api/gemini', geminiRoutes); // <-- NEW
 
 // Start server
 app.listen(PORT, () => {

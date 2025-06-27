@@ -1,4 +1,3 @@
-// client/src/components/NavbarPage/Navbar.jsx
 import { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRobot, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
@@ -36,7 +35,9 @@ const Navbar = ({ user, onLogout }) => {
           Health Chatbot
         </a>
 
-        <div className="user-dropdown" ref={dropdownRef}>
+        <div className="user-dropdown d-flex align-items-center gap-2" ref={dropdownRef}>
+          <span className="text-white fw-semibold">{user?.name}</span>
+
           <div
             className="user-avatar"
             onClick={() => setMenuOpen(!menuOpen)}

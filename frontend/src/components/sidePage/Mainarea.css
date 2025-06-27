@@ -20,3 +20,22 @@
   flex-direction: column;
   background: #f8f9fa;
 }
+
+/* === Responsive for Mobile View === */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    height: auto; /* Allow natural height */
+  }
+
+  .sidebar-container {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .chat-container {
+    width: 100%;
+    height: calc(100vh - 200px); /* Adjust based on sidebar height */
+  }
+}
